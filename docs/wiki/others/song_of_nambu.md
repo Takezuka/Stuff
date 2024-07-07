@@ -58,4 +58,6 @@ kwai sau tung dang sai gaai ji mou toi，zeng ngo naam mou ji ceoi wai
 
 ## 歌曲
 
-[南武之歌](/media/song_of_nambu.mp3)
+[南武之歌（点击下载或跳转播放）](/media/song_of_nambu.mp3)
+
+<AudioPlayer src="/media/song_of_nambu.mp3" />

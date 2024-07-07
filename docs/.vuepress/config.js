@@ -37,11 +37,15 @@ export default defineUserConfig({
         ],
 
         sidebar: getSideBar(),
+
+        contributors: false,
     }),
 
     plugins: [],
 
     bundler: viteBundler(),
+
+
 })
 
 function getSideBar() {
