@@ -44,8 +44,6 @@ export default defineUserConfig({
     plugins: [],
 
     bundler: viteBundler(),
-
-
 })
 
 function getSideBar() {
@@ -75,16 +73,23 @@ function scanFolder(dirName, pfx = "") {
             rootFiles.push(pfx + file.slice(0, file.length - 3))
         } else if (fs.lstatSync(dirName + '/' + file).isDirectory()) {
             // console.log("文件夹", file)
-            scanFolder(dirName + '/' + file, file + '/').forEach((group) => groups.push(group))
+            groups.push(...(scanFolder(dirName + '/' + file, file + '/')))
         } // else console.log("未知", file)
     })
 
-    if (rootFiles.length > 0) groups.push({text: getFirstLetterUpperFolderName(dirName), children: rootFiles})
+    if (rootFiles.length > 0) groups.push({text: getFormattedName(dirName), children: rootFiles, collapsible: true})
+
 
     return groups
 }
 
-function getFirstLetterUpperFolderName(folderName) {
-    const lastSlash = folderName.lastIndexOf('/') + 1
-    return folderName.charAt(lastSlash).toUpperCase() + folderName.slice(lastSlash + 1)
+function getFormattedName(folderName) {
+    return folderName
+        .split('/').slice(1)
+        .map(component =>
+            component.split('_')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ')
+        )
+        .join(' > ');
 }

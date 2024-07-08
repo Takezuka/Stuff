@@ -4,13 +4,14 @@
 
 此曲由爱国青年的热血灌注而成，彰显了人民对祖国南武的深沉热爱和对南武联合党以及伟大领袖南武香淳同志的拥护和爱戴。联合主义南武共和国成立后，本曲正式被作为国歌写入宪法。
 
-| **南武之歌** | **Song of Nambu** |
-|:--------:|:-----------------:|
-|    地位    |    联合主义南武共和国国歌    |
-|    作词    |       爱国青年们       |
-|    作曲    |        佚名         |
-|    编曲    |        佚名         |
-|    演唱    |      爱国青年合唱       |
+| **南武之歌** |                                       **Song of Nambu**                                        |
+|:--------:|:----------------------------------------------------------------------------------------------:|
+|    地位    |                                          联合主义南武共和国国歌                                           |
+|    作词    |                                             爱国青年们                                              |
+|    作曲    |                                               佚名                                               |
+|    编曲    |                                               佚名                                               |
+|    演唱    |                                             爱国青年合唱                                             |
+|    播放    | [南武之歌（点击下载或跳转播放）](/media/song_of_nambu.mp3)<br/><AudioPlayer src="/media/song_of_nambu.mp3" /> |
 
 ## 歌词
 
@@ -55,9 +56,3 @@ lyun hap zyu yi sung ceon loi，dong gaa zou ju hou on paai
 hiu jat tung tung zyeng dou hoi，gwok kei ziu zin zong jim gaai
 
 kwai sau tung dang sai gaai ji mou toi，zeng ngo naam mou ji ceoi wai
-
-## 歌曲
-
-[南武之歌（点击下载或跳转播放）](/media/song_of_nambu.mp3)
-
-<AudioPlayer src="/media/song_of_nambu.mp3" />
