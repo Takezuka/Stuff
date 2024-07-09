@@ -1,29 +1,29 @@
 <template>
-  <div class="audio-player">
+  <div class="audio-player" :class="{'use-margin-up':useMarginUp}">
     <audio ref="audio" @timeupdate="updateProgress"/>
-    <div class="controls">
-      {{ title }}
-      <button @click="togglePlay">{{ isPlaying ? '暂停' : '播放' }}</button>
-      <div class="progress">
-        <input
-            type="range"
-            min="0"
-            :max="duration"
-            step="0.1"
-            v-model="currentTime"
-            @input="seekAudio"/>
-      </div>
-      <span v-if="showIt">{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</span>
+    <div class="title-small label">{{ title }}</div>
+    <IconButton :icon="isPlaying?'pause':'play'" @click="togglePlay"/>
+    <div class="progress">
+      <input
+          type="range"
+          min="0"
+          :max="duration"
+          step="0.1"
+          v-model="currentTime"
+          @input="seekAudio"/>
     </div>
+    <div v-if="showIt" class="title-small label">{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import {onMounted, ref, watch} from 'vue'
+import IconButton from "./IconButton.vue";
 
 const props = defineProps({
   src: String,
   title: {type: String, default: '页内播放'},
+  useMarginUp: {type: Boolean, default: true}
 })
 
 const audio = ref<HTMLAudioElement | null>(null)
@@ -76,16 +76,24 @@ onMounted(() => watch(() => props.src, (newSrc) => {
 <style scoped>
 .audio-player {
   display: flex;
-  flex-direction: column;
+  border-radius: 12px;
+  background-color: var(--surface-container);
+  padding: 0 16px;
+  gap: 8px;
+  flex-direction: row;
   align-items: center;
+  box-shadow: var(--elevation-3);
 }
 
-.controls {
-  display: flex;
-  align-items: center;
+.use-margin-up {
+  margin-top: 8px;
 }
 
 .progress {
   margin: 0 10px;
+}
+
+.label {
+  color: var(--on-surface-variant);
 }
 </style>
