@@ -1,6 +1,6 @@
 <template>
   <div class="icon-button"
-       :style="{height : size + 'px' , width : size + 'px'}"
+       :style="{minHeight : size + 'px' , minWidth : size + 'px'}"
        :class="[buttonStyle, {'disabled' : disabled}]"
        ref="button"
        tabindex="0">

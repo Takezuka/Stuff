@@ -1,24 +1,24 @@
 <template>
   <div class="audio-player" :class="{'use-margin-up':useMarginUp}">
     <audio ref="audio" @timeupdate="updateProgress"/>
-    <div class="title-small label">{{ title }}</div>
     <IconButton :icon="isPlaying?'pause':'play'" @click="togglePlay"/>
-    <div class="progress">
-      <input
-          type="range"
-          min="0"
-          :max="duration"
-          step="0.1"
-          v-model="currentTime"
-          @input="seekAudio"/>
+    <div class="title-small label">{{ title }}</div>
+    <Slider
+        :max="duration"
+        :step="0.1"
+        v-model="currentTime"
+        @value-changed="seekAudio"/>
+    <div v-if="showIt" class="title-small label bar-out">{{ formatTime(currentTime) }} / {{
+        formatTime(duration)
+      }}
     </div>
-    <div v-if="showIt" class="title-small label">{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import {onMounted, ref, watch} from 'vue'
-import IconButton from "./IconButton.vue";
+import IconButton from "./IconButton.vue"
+import Slider from "./Slider.vue"
 
 const props = defineProps({
   src: String,
@@ -49,10 +49,9 @@ function updateProgress() {
   }
 }
 
-function seekAudio(event: Event) {
-  const target = event.target as HTMLInputElement
+function seekAudio(value: number) {
   if (audio.value) {
-    audio.value.currentTime = Number(target.value)
+    audio.value.currentTime = value
   }
 }
 
@@ -74,23 +73,23 @@ onMounted(() => watch(() => props.src, (newSrc) => {
 </script>
 
 <style scoped>
+.bar-out {
+  padding-right: 8px;
+}
+
 .audio-player {
+  padding-right: 8px;
   display: flex;
-  border-radius: 12px;
+  border-radius: 36px;
   background-color: var(--surface-container);
-  padding: 0 16px;
-  gap: 8px;
+  gap: 4px;
   flex-direction: row;
   align-items: center;
-  box-shadow: var(--elevation-3);
+  border: solid var(--outline-variant) 1px;
 }
 
 .use-margin-up {
   margin-top: 8px;
-}
-
-.progress {
-  margin: 0 10px;
 }
 
 .label {
