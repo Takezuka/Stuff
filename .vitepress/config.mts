@@ -12,5 +12,6 @@ export default defineConfig({
             console.warn("\n", TAG, "发现死链", url)
             return true
         }
-    ]
+    ],
+    head: [['link', { rel: 'icon', href: '/icons/icon_nambu_docs.png' }]],
 })
