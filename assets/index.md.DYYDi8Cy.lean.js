@@ -1,0 +1,1 @@
+import{_ as a,c as t,z as l,o as i}from"./chunks/framework.UvvcyIwT.js";const m=JSON.parse('{"title":"南武文库","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),s={name:"index.md"};function o(p,e,r,n,c,_){return i(),t("div",null,e[0]||(e[0]=[l("",10)]))}const h=a(s,[["render",o]]);export{m as __pageData,h as default};
